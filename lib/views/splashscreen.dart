@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:get_storage/get_storage.dart';
 
 import 'home.dart';
 import 'login.dart';
@@ -14,16 +13,8 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(
-        Duration(seconds: 3),
-        () => Navigator.of(context).pushReplacement(
-              MaterialPageRoute(
-                builder: (BuildContext context) =>
-                    GetStorage().read("token") != null
-                        ? MyHomePage(title: "a")
-                        : LoginPage(title: "b"),
-              ),
-            ));
+    Timer(Duration(seconds: 3),
+        () => Navigator.of(context).pushReplacementNamed("/"));
   }
 
   @override
